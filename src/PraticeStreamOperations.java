@@ -2,6 +2,7 @@
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.OptionalLong;
 
 public class PraticeStreamOperations {
 	public static void main(String[] args) {
@@ -11,6 +12,11 @@ public class PraticeStreamOperations {
 				new Employee(45, 345L, Arrays.asList("manoj12@gmail.com","kumar12@gmail.com"), "dev"),
 				new Employee(60, 456L, Arrays.asList("manoj23@gmail.com","kumar23@gmail.com"), "qa"));
 		empList.forEach(System.out :: println);
+
+		//max salary
+		Long maxSalary=empList.parallelStream().mapToLong(Employee::getSalary).summaryStatistics().getMax();
+		System.out.println(maxSalary);
+
 
 	}
 
